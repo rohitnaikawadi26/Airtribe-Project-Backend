@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../database');
+const Instructor = require('./Instructor');
 
 const Course = db.define('Course', {
   name: {
@@ -15,5 +16,7 @@ const Course = db.define('Course', {
     allowNull: false
   }
 });
+
+Course.belongsTo(Instructor); // Adds an instructorId column to the Course table
 
 module.exports = Course;
